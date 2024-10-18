@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lua Commands for Game Development - Game Dev Coding Forum</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e8e8e8;
+            background-color: #1a0028;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        header {
+            background: #4a0080;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #b300ff 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #b300ff;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        #showcase {
+            min-height: 300px;
+            background: url('/api/placeholder/1200/300') no-repeat center;
+            background-size: cover;
+            text-align: center;
+            color: #ffffff;
+        }
+        #showcase h1 {
+            margin-top: 100px;
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+        #showcase p {
+            font-size: 20px;
+        }
+        .command-block {
+            background-color: #2a0044;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .command-name {
+            color: #b300ff;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .command-description {
+            margin-top: 10px;
+        }
+        .command-example {
+            background-color: #3a005a;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .command-usage {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+        .command-usage li {
+            margin-bottom: 5px;
+        }
+        h2 {
+            color: #b300ff;
+            border-bottom: 2px solid #b300ff;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Game Dev</span> Coding Forum</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="csharp.html">C#</a></li>
+                    <li><a href="cpp.html">C++</a></li>
+                    <li><a href="javascript.html">JavaScript</a></li>
+                    <li class="current"><a href="lua.html">Lua</a></li>
+                    <li><a href="html.html">HTML</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Lua Commands for Game Development</h1>
+            <p>Essential Lua functions and techniques for game development</p>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <h2>Tables and Data Structures</h2>
+            
+            <div class="command-block">
+                <div class="command-name">table.insert()</div>
+                <div class="command-description">
+                    Inserts a value into a table at a specified position or at the end if no position is specified.
+                </div>
+                <div class="command-example">
+                    local fruits = {"apple", "banana"}
+                    table.insert(fruits, "orange")
+                    table.insert(fruits, 2, "grape")
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Specify the table as the first argument.</li>
+                        <li>Optionally specify the position as the second argument.</li>
+                        <li>Provide the value to insert as the last argument.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-name">table.remove()</div>
+                <div class="command-description">
+                    Removes an element from a table at a specified position.
+                </div>
+                <div class="command-example">
+                    local fruits = {"apple", "banana", "orange"}
+                    local removed = table.remove(fruits, 2)
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Specify the table as the first argument.</li>
+                        <li>Optionally specify the position as the second argument (defaults to last element).</li>
+                        <li>Returns the removed element.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>String Manipulation</h2>
+
+            <div class="command-block">
+                <div class="command-name">string.format()</div>
+                <div class="command-description">
+                    Returns a formatted string based on a format string and additional arguments.
+                </div>
+                <div class="command-example">
+                    local name = "Player"
+                    local score = 1000
+                    local message = string.format("%s scored %d points!", name, score)
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Provide a format string as the first argument.</li>
+                        <li>Use %s for strings, %d for integers, %f for floats, etc.</li>
+                        <li>Provide additional arguments to fill the placeholders.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-name">string.sub()</div>
+                <div class="command-description">
+                    Returns a substring of a given string.
+                </div>
+                <div class="command-example">
+                    local str = "Hello, World!"
+                    local sub = string.sub(str, 1, 5)  -- Returns "Hello"
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Provide the main string as the first argument.</li>
+                        <li>Specify the start index as the second argument.</li>
+                        <li>Optionally specify the end index as the third argument.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>Math and Random Number Generation</h2>
+
+            <div class="command-block">
+                <div class="command-name">math.random()</div>
+                <div class="command-description">
+                    Generates a random number within a specified range.
+                </div>
+                <div class="command-example">
+                    local randomNumber = math.random()  -- Returns a number between 0 and 1
+                    local diceRoll = math.random(1, 6)  -- Returns a number between 1 and 6
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Call without arguments to get a float between 0 and 1.</li>
+                        <li>Provide one argument for an integer between 1 and that number.</li>
+                        <li>Provide two arguments for an integer within that range (inclusive).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="command-block">
+                <div class="command-name">math.floor() and math.ceil()</div>
+                <div class="command-description">
+                    Rounds a number down (floor) or up (ceil) to the nearest integer.
+                </div>
+                <div class="command-example">
+                    local x = 3.7
+                    local floorX = math.floor(x)  -- Returns 3
+                    local ceilX = math.ceil(x)    -- Returns 4
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Pass a number as an argument to either function.</li>
+                        <li>Use floor() to round down, ceil() to round up.</li>
+                        <li>Useful for pixel-perfect positioning in games.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>File I/O</h2>
+
+            <div class="command-block">
+                <div class="command-name">io.open()</div>
+                <div class="command-description">
+                    Opens a file for reading or writing.
+                </div>
+                <div class="command-example">
+                    local file = io.open("savegame.txt", "w")
+                    file:write("Player Score: 1000")
+                    file:close()
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Specify the filename as the first argument.</li>
+                        <li>Provide the mode as the second argument ("r" for read, "w" for write, "a" for append).</li>
+                        <li>Use methods like write() or read() on the returned file object.</li>
+                        <li>Always close the file when done.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>Time and Date</h2>
+
+            <div class="command-block">
+                <div class="command-name">os.time()</div>
+                <div class="command-description">
+                    Returns the current time as the number of seconds since the epoch.
+                </div>
+                <div class="command-example">
+                    local currentTime = os.time()
+                    local futureTime = os.time({year=2025, month=1, day=1})
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Call without arguments to get the current time.</li>
+                        <li>Pass a table to get the time for a specific date.</li>
+                        <li>Useful for calculating time differences or setting future events.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>Coroutines</h2>
+
+            <div class="command-block">
+                <div class="command-name">coroutine.create() and coroutine.resume()</div>
+                <div class="command-description">
+                    Creates a new coroutine and resumes its execution.
+                </div>
+                <div class="command-example">
+                    local co = coroutine.create(function()
+                        for i = 1, 3 do
+                            print("Coroutine step", i)
+                            coroutine.yield()
+                        end
+                    end)
+
+                    coroutine.resume(co)  -- Prints "Coroutine step 1"
+                    coroutine.resume(co)  -- Prints "Coroutine step 2"
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Create a coroutine with coroutine.create(), passing a function.</li>
+                        <li>Use coroutine.resume() to start or continue the coroutine's execution.</li>
+                        <li>Use coroutine.yield() within the coroutine to pause execution.</li>
+                        <li>Useful for implementing game state machines or managing complex sequences.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <h2>Metatables and Metamethods</h2>
+
+            <div class="command-block">
+                <div class="command-name">setmetatable() and getmetatable()</div>
+                <div class="command-description">
+                    Sets or gets the metatable of a table, allowing for custom behavior.
+                </div>
+                <div class="command-example">
+                    local t = {}
+                    local mt = {
+                        __index = function(t, k)
+                            return "Key " .. k .. " not found!"
+                        end
+                    }
+                    setmetatable(t, mt)
+                    print(t.nonexistent)  -- Prints "Key nonexistent not found!"
+                </div>
+                <div class="command-usage">
+                    <h4>How to use:</h4>
+                    <ol>
+                        <li>Create a metatable with desired metamethods (__index, __newindex, etc.).</li>
+                        <li>Use setmetatable() to associate the metatable with a table.</li>
+                        <li>Use getmetatable() to retrieve the metatable of an object.</li>
+                        <li>Powerful for implementing object-oriented programming in Lua.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</body>
+</html>
